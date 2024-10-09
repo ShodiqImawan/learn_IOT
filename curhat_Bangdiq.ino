@@ -5,7 +5,7 @@
 
 const char* ssid = "Infinix NOTE 7"; //Nama WiFi
 const char* password = "InfinixHelio"; //Password WiFi
-const char* mqtt_server = "10.54.153.223"; //IP untuk mqtt server
+const char* mqtt_server = ""; //IP untuk mqtt server
 
 // Pin untuk sensor ultrasonik HC-SR04
 const int trigPin = 14; // Pin trigger
