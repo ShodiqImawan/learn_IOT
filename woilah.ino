@@ -2,9 +2,9 @@
 #include <PubSubClient.h>  // Library untuk berkomunikasi dengan MQTT
 
 // Informasi jaringan WiFi
-const char* ssid = "Infinix NOTE 7";     // Nama WiFi
-const char* password = "InfinixHelio";   // Password WiFi
-const char* mqtt_server = "10.117.139.12"; // Alamat IP server MQTT
+const char* ssid = "";     // Nama WiFi
+const char* password = "";   // Password WiFi
+const char* mqtt_server = ""; // Alamat IP server MQTT
 
 // Deklarasi pin untuk sensor ultrasonik HC-SR04
 const int trigPin = 14; // Pin Trigger (D5 - GPIO14)
