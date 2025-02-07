@@ -3,8 +3,13 @@
 #include <PubSubClient.h>
 
 
+<<<<<<< Updated upstream
 const char* ssid = ""; //Nama WiFi
 const char* password = ""; //Password WiFi
+=======
+const char* ssid = "Infinix NOTE 7"; //Nama WiFi
+const char* password = "aloobang"; //Password WiFi
+>>>>>>> Stashed changes
 const char* mqtt_server = ""; //IP untuk mqtt server
 
 // Pin untuk sensor ultrasonik HC-SR04
