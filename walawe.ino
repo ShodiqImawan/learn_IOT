@@ -3,15 +3,15 @@
 #include <BlynkSimpleEsp8266.h>
 
 // Konfigurasi Wi-Fi
-char ssid[] = "Infinix NOTE 7";       
-char pass[] = "sodikganteng";         
+char ssid[] = "";       
+char pass[] = "";         
 
 // Auth Token dari Blynk App
-char auth[] = "dWK0F92jAWTpvBDoTHqE_vsnLV4wxKQ8";  
+char auth[] = "";  
 
 // Alamat server Blynk lokal
-char server[] = "iot.smk2-yk.sch.id"; 
-int port = 8080;                      
+char server[] = ""; 
+int port = ;                      
 
 // Konfigurasi Sensor Gas
 const int gasSensorPin = A0;  
