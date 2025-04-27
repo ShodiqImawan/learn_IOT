@@ -1,6 +1,6 @@
 #include <ESP8266WiFi.h>   // Library untuk menghubungkan ESP8266 ke WiFi
 #include <PubSubClient.h>  // Library untuk berkomunikasi dengan MQTT
-d:\BangDiq\adadeh\curhat_Bangdiq\walawe.ino
+
 // Informasi jaringan WiFi
 const char* ssid = "";     // Nama WiFi
 const char* password = "";   // Password WiFi
