@@ -1,27 +1,27 @@
 #include <ESP8266WiFi.h>
 #include "Adafruit_MQTT.h"
 #include "Adafruit_MQTT_Client.h"
-#define WLAN_SSID "SSID" // Isi dengan SSID WiFi Anda
+#define WLAN_SSID "Infinix NOTE 7" // Isi dengan SSID WiFi Anda
 #define WLAN_PASS "PASSWORD" // Isi dengan Password WiFi Anda
 #define AIO_SERVER "io.adafruit.com" // Isi dengan server Adafruit IO
 #define AIO_SERVERPORT 1883
 #define IO_USERNAME "USERNAME" // Isi dengan username Adafruit IO
-#define IO_KEY "KEY_ADAFRUIT" // Isi dengan key Adafruit IO
+#define IO_KEY "KEY" // Isi dengan key Adafruit IO
 
 WiFiClient client;
 Adafruit_MQTT_Client mqtt(&client, AIO_SERVER, AIO_SERVERPORT, IO_USERNAME, IO_KEY);
-Adafruit_MQTT_Publish ledtelegram = Adafruit_MQTT_Publish(&mqtt, IO_USERNAME "/feeds/ledtelegram");
-Adafruit_MQTT_Subscribe Kontroll_Relay = Adafruit_MQTT_Subscribe(&mqtt, IO_USERNAME "/feeds/ledtelegram");
+Adafruit_MQTT_Publish relaytelegram = Adafruit_MQTT_Publish(&mqtt, IO_USERNAME "/feeds/relay");
+Adafruit_MQTT_Subscribe Kontroll_Relay = Adafruit_MQTT_Subscribe(&mqtt, IO_USERNAME "/feeds/relay");
 
 void MQTT_connect();
 
-#define pin_relay D3
+int pin_relay = D2;
 String Data;
 
 void setup() {
   Serial.begin(115200);
   delay(10);
-  Serial.println(F("Kontrol Relay Google Assistant"));
+  Serial.println(F("Kontrol Relay"));
   Serial.println();
   Serial.print("Connecting to ");
   Serial.println(WLAN_SSID);
@@ -41,13 +41,28 @@ void setup() {
   // Setup MQTT subscription
   mqtt.subscribe(&Kontroll_Relay);
   pinMode(pin_relay, OUTPUT);
-  digitalWrite(pin_relay, 1);
+  digitalWrite(pin_relay, 0);
 }
 
 uint32_t x = 0;
 
 void loop() {
   MQTT_connect();
+
+  // String message = bot.getNextMessage();
+  // if (!message.isEmpty()) {
+  //   Serial.print("Received message: ");
+  //   Serial.println(message);
+
+  //   // Contoh perintah:
+  //   if (message.equalsIgnoreCase("")) {
+  //     digitalWrite(relayPin, HIGH); // Nyalakan relay
+  //     bot.sendMessage(chatID, "Relay dinyalakan");
+  //   } else if (message.equalsIgnoreCase("mati")) {
+  //     digitalWrite(relayPin, LOW); // Matikan relay
+  //     bot.sendMessage(chatID, "Relay dimatikan");
+  //   }
+  // }
   
   Adafruit_MQTT_Subscribe *subscription;
   while ((subscription = mqtt.readSubscription(5000))) {
